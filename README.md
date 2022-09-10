@@ -1,3 +1,8 @@
+#tiktok-clone-frontend
+
+Front End - https://tiktok-clone-29966.web.app/ Back End - https://zahar-tiktok.herokuapp.com/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
