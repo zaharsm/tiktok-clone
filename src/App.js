@@ -1,23 +1,61 @@
-import logo from './logo.svg';
+import Video from './Video';
 import './App.css';
+import { useEffect, useState } from 'react';
+import axios from './axios';
 
 function App() {
+
+  const [videos,setVideos] = useState([]);
+  
+  useEffect(() => {
+    async function fetchPosts(){
+      const response = await axios.get("/v2/posts");
+      setVideos(response.data);
+
+      return response;
+    }
+    fetchPosts();
+
+  }, []);
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+     <div className="app__videos">
+
+     {videos.map(({url,name,songs,description,messages,likes,shares}) =>(
+       <Video 
+        url={url}
+        description={description}
+        songs={songs}
+        likes={likes}
+        messages={messages}
+        shares={shares}
+        name={name}
+       />
+     )
+     )}
+      
+      {/* <Video url="videos/jelly.mp4" 
+      name="ssssangha" 
+      description="Wow Epic Mern stack tik tok" 
+      songs ="99 problems to React JS"  
+      likes={111} 
+      messages={251} 
+      shares={71}/>
+
+
+<Video url="videos/drama.mp4" 
+      name="qazi" 
+      description="This is a new Drama" 
+      songs ="new build for everyone"  
+      likes={356} 
+      messages={210} 
+      shares={96}/> */}
+
+
+      </div>
+
     </div>
   );
 }
