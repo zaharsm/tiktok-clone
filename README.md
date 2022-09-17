@@ -2,6 +2,8 @@
 
 Front End - https://tiktok-clone-29966.web.app/ Back End - https://zahar-tiktok.herokuapp.com/
 
+<img src="tiktok.png">
+
 
 # Getting Started with Create React App
 
